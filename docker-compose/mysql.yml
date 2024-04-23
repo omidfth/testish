@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql:
+    image: 'mysql:8.0'
+    ports:
+      - "3309:3307"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user
+      MYSQL_TCP_PORT: 3307
+    volumes:
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/msql.sql:/docker-entrypoint-initdb.d/docker_init.sql
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/mysql_dump.sql:/mysql_dump.sql
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/mysql_restore.sh:/docker-entrypoint-initdb.d/mysql_restore.sh

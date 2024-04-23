@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS db_test;
+CREATE DATABASE db_test;
+GRANT ALL ON *.* TO db_user;

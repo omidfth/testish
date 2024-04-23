@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:14.0'
+    ports:
+      - "5432:5432"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_user
+    volumes:
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/pg.sql:/docker-entrypoint-initdb.d/docker_init.sql
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/pg_dump.sql:/pg_dump.sql
+      - /home/omid.fathollahzadeh@zoodfood.ir/Documents/Projects/Golang/github.com/omidfth/testish/docker-compose/data/pg_restore.sh:/docker-entrypoint-initdb.d/pg_restore.sh

@@ -1,0 +1,1 @@
+mysql -u db_user -pdb_user db_test < mysql_dump.sql

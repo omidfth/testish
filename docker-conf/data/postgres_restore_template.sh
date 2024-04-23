@@ -1,0 +1,1 @@
+psql -U db_user db_test < pg_dump.sql
